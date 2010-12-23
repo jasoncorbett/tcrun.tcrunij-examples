@@ -21,7 +21,7 @@ public class YPSearchResultsPage implements SelfAwarePage<Object>
 	@Override
 	public boolean isCurrentPage(WebDriverWrapper browser)
 	{
-		return browser.exists(ResultsDiv);
+		return browser.exists(ResultsDiv, false);
 	}
 
 	@Override

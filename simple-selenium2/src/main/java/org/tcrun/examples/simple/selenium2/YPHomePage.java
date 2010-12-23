@@ -16,8 +16,10 @@ public class YPHomePage implements SelfAwarePage<Object>
 	public static PageElement FindButton = new PageElement("Find Button", FindBy.id("search-submit"));
 
 	// Ajax Elements
-	public static PageElement LocationResultsBox = new PageElement("Box Containing Location Results", FindBy.className("ac_results"));
-	public static PageElement FirstLocationResult = new PageElement("First Location Result", FindBy.xpath("(//li[@class='ac_even'])[1]"));
+	public static PageElement firstLocationContaining(String part)
+	{
+		return new PageElement("Location result containing " + part, FindBy.xpath("(//li[contains(text(), \"" + part + "\")])[1]" ));
+	}
 
 
 	@Override

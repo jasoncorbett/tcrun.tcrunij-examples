@@ -3,6 +3,7 @@ package org.tcrun.examples.simple.selenium2;
 import java.util.UUID;
 import org.tcrun.tcapi.TestResult;
 import org.tcrun.tcapi.selenium.AbstractSeleniumTest;
+import org.tcrun.tcapi.selenium.PageElement;
 import static org.tcrun.tcapi.assertlib.MatchBuilder.*;
 
 /**
@@ -31,8 +32,9 @@ public class SearchForIntuit extends AbstractSeleniumTest
 
 		step("Type \"Mountain\" into the location box, and click on first result.");
 		browser.type(YPHomePage.SearchLocationField, "Mountain");
-		browser.waitForVisible(YPHomePage.FirstLocationResult);
-		browser.click(YPHomePage.FirstLocationResult);
+		PageElement moutainViewCAResult = YPHomePage.firstLocationContaining("View, CA");
+		browser.waitForVisible(moutainViewCAResult);
+		browser.click(moutainViewCAResult);
 
 		step("Click the Find button", "Browser goes to a results page with Intuit Inc. in the results.");
 		browser.click(YPHomePage.FindButton);
