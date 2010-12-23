@@ -40,7 +40,7 @@ public class SearchForIntuit extends AbstractSeleniumTest
 		browser.click(YPHomePage.FindButton);
 		browser.waitFor(YPSearchResultsPage.class);
 		browser.takeScreenShot("search-results");
-		browser.waitFor(YPSearchResultsPage.resultByName("Intuit Inc."));
+		check.that(browser.exists(YPSearchResultsPage.resultByName("Intuit Inc.")), Is.True());
 
 		return TestResult.PASS;
 	}
