@@ -13,6 +13,11 @@ public class YPSearchResultsPage implements SelfAwarePage<Object>
 {
 	public static PageElement ResultsDiv = new PageElement("Div that contains all search results", FindBy.id("results"));
 
+	public static PageElement resultByName(String name)
+	{
+		return new PageElement("Search result with name " + name, FindBy.linkText(name));
+	}
+
 	@Override
 	public boolean isCurrentPage(WebDriverWrapper browser)
 	{

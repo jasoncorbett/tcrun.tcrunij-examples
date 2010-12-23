@@ -36,7 +36,9 @@ public class SearchForIntuit extends AbstractSeleniumTest
 
 		step("Click the Find button", "Browser goes to a results page with Intuit Inc. in the results.");
 		browser.click(YPHomePage.FindButton);
-		browser.takeScreenShot();
+		browser.waitFor(YPSearchResultsPage.class);
+		browser.takeScreenShot("search-results");
+		browser.waitFor(YPSearchResultsPage.resultByName("Intuit Inc."));
 
 		return TestResult.PASS;
 	}
