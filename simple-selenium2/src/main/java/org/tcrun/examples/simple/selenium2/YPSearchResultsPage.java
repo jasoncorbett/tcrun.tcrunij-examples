@@ -1,6 +1,7 @@
 package org.tcrun.examples.simple.selenium2;
 
 import org.tcrun.tcapi.selenium.FindBy;
+import org.tcrun.tcapi.selenium.In;
 import org.tcrun.tcapi.selenium.PageElement;
 import org.tcrun.tcapi.selenium.SelfAwarePage;
 import org.tcrun.tcapi.selenium.WebDriverWrapper;
@@ -15,7 +16,7 @@ public class YPSearchResultsPage implements SelfAwarePage<Object>
 
 	public static PageElement resultByName(String name)
 	{
-		return new PageElement("Search result with name " + name, FindBy.linkText(name));
+		return new PageElement("Search result with name " + name, In.ParentElement(ResultsDiv), FindBy.linkText(name));
 	}
 
 	@Override
